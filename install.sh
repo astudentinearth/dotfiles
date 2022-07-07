@@ -14,6 +14,7 @@ mkdir -p ~/.config/rofi
 cp ./config.rasi ~/.config/rofi/config.rasi
 
 echo ===Configuring alacritty===
+mkdir -p ~/.config/alacritty/
 cp ./alacritty.yml ~/.config/alacritty/alacritty.yml
 
 echo ===Configuring picom==
