@@ -1,0 +1,23 @@
+@use "vars";
+
+$bg1: #11111b;
+$bg2: #181825;
+$bg3: #1e1e2e;
+
+$text: #cdd6f4;
+$blue: #89b4fa;
+
+* {
+    font-family: "Inter";
+}
+
+.bar{
+    background: rgba($bg1, 0.6);
+}
+
+.datetime-box{
+    padding: 4px 8px;
+    .time-label {
+        font-weight: 500;
+    }
+}

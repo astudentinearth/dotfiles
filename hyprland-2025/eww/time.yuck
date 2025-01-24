@@ -1,0 +1,26 @@
+(defpoll time :interval "0.5s"
+    `date +'%d %b %H:%M'`
+)
+
+(defpoll date :interval "0.5s"
+    `echo $(date +'%d %B %Y') | tr '[:lower:]' '[:upper:]'`
+)
+
+(defpoll day :interval "0.5s"
+    `echo $(date +'%A') | tr '[:lower:]' '[:upper:]'`
+)
+
+(defwidget datetime []
+    (box
+        :orientation "horizontal"
+        :halign "end"
+        :class "datetime-box"
+        :space-evenly false
+        :spacing 16
+        :style "font-size:16px"
+        (label
+            :class "time-label"
+            :text time
+        )
+    )
+)
