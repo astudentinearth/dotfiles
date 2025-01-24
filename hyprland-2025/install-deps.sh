@@ -1,1 +1,2 @@
 sudo pacman -S pipewire wireplumber sof-firmware playerctl brightnessctl xdg-user-dirs qt6ct lxappearance kitty
+yay -S aur/hyprshot aur/hyprprop-git aur/hyprpolkitagent-git aur/xdg-desktop-portal-hyprland-git --no-confirm
