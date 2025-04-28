@@ -6,3 +6,13 @@ vim.opt.number = true
 vim.opt.expandtab = true
 
 require("config.lazy")
+
+local tree = require("nvim-tree")
+tree.setup({
+    view = {
+        width = 20
+    }
+})
+
+
+vim.cmd("NvimTreeOpen")
