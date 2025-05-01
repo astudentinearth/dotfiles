@@ -1,6 +1,6 @@
 @use "vars";
 
-$bg1: #11111b;
+$bg1: #00030a;
 $bg2: #181825;
 $bg3: #1e1e2e;
 
@@ -8,16 +8,18 @@ $text: #cdd6f4;
 $blue: #89b4fa;
 
 * {
-    font-family: "Inter";
+    font-family: "FantasqueSansM Nerd Font";
 }
 
 .bar{
     background: rgba($bg1, 0.6);
+    border-bottom: 1px solid rgba(#71788e, 0.7);
 }
 
 .datetime-box{
     padding: 4px 8px;
     .time-label {
         font-weight: 500;
+        color: white;
     }
 }

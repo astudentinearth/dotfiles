@@ -1,0 +1,49 @@
+/* my tweaks */
+
+/* 225 100% 3% */
+
+:root {
+  --panel-border-radius: 16px !important;
+  --arrowpanel-background: hsl(225 30% 12% / 1) !important;
+  --zen-colors-border: hsl(225 11% 50% / 0.7) !important;
+  --toolbox-bgcolor-inactive: transparent !important;
+}
+
+#appMenu-popup, #contentAreaContextMenu, #tabContextMenu, #downloadsPanel, panel {
+    --panel-border-radius: 12px !important;
+}
+
+#urlbar-background {
+  border: 1px solid hsl(225 11% 50% / 0.7) !important;
+  background: hsl(225 30% 10% / 0.5) !important;
+}
+
+#urlbar[open] #urlbar-background {
+    background: hsl(225 30% 10% / 1) !important;
+}
+
+menuitem {
+  padding-top: 8px !important;
+  padding-bottom: 8px !important;
+}
+
+#appMenu-mainView {
+  border-radius: 16px !important;
+}
+
+.browserSidebarContainer {
+  border: 1px solid hsl(231 11% 47% / 0.5) !important;
+  border-radius: 8px !important;
+}
+
+#TabsToolbar {
+  background: transparent !important;
+}
+
+#unified-extensions-panel {
+  max-height: 720px !important;
+}
+
+.titlebar-close {
+  display:  none;
+}
