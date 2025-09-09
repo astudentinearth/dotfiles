@@ -1,0 +1,12 @@
+(deflisten current_workspace :initial "1" "bash ~/.config/eww/scripts/get-active-workspace")
+
+(defwidget workspaces []
+   (box
+     :halign "start"
+     :class "workspaces-box"
+        (label
+            :text "${current_workspace}" 
+        ) 
+   ) 
+)
+

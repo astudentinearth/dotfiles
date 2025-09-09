@@ -44,6 +44,11 @@ menuitem {
   max-height: 720px !important;
 }
 
-.titlebar-close {
-  display:  none;
+#sidebar-box {
+  background: rgba(24, 27, 40, 0.6) !important;
+  border-radius: 12px !important;;
+}
+
+#sidebar, #sidebar-header {
+  background: transparent !important;;
 }

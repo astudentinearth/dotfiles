@@ -16,3 +16,11 @@ tree.setup({
 
 
 vim.cmd("NvimTreeOpen")
+vim.cmd("TransparentEnable")
+
+vim.filetype.add({
+  extension = {
+    yuck = "lisp",
+  },
+})
+

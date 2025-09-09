@@ -1,4 +1,6 @@
 (include "./time.yuck")
+(include "./workspace.yuck")
+(include "./active-window.yuck")
 
 (defwindow bar
     :monitor 0
@@ -16,12 +18,30 @@
     :namespace "bar"
     (centerbox
         :orientation "h"
-        (box)
-        (box)
+        (box
+          :halign "start"
+          :orientation "h"
+            (box
+                :halign "start"
+                :space-evenly false
+                (workspaces)
+                (window_title)
+            )
+        )
+        (box
+            :halign "center"
+          )
         (box
             :halign "end"
             (systray
                 :halign "end"
+            )
+            (box
+                :halign "end"
+                (label 
+                    :text "  ${EWW_BATTERY.BAT1.capacity}%"
+                    :class "text-white"
+                )
             )
             (datetime)
         )
