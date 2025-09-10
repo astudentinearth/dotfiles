@@ -1,21 +1,6 @@
+
 return {
-    "nvim-lua/plenary.nvim",
-    {
-       "neovim/nvim-lspconfig",
-       name="lspconfig",
-       priority=1000
-    },
-    {
-        "nvim-telescope/telescope.nvim",
-        priority=1000
-    },
-    {
-        "hrsh7th/nvim-cmp",
-        {
-            "hrsh7th/cmp-nvim-lsp",
-            "hrsh7th/cmp-buffer",
-            "hrsh7th/cmp-path",
-            "hrsh7th/cmp-cmdline"
-        }
-    }
+    "neoclide/coc.nvim"
 }
+
+

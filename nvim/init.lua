@@ -14,13 +14,20 @@ tree.setup({
     }
 })
 
-
+vim.opt.termguicolors = true
+require("bufferline").setup()
+require("lualine").setup()
 vim.cmd("NvimTreeOpen")
 vim.cmd("TransparentEnable")
-
+vim.g.mapleader=" "
 vim.filetype.add({
   extension = {
     yuck = "lisp",
   },
 })
+
+
+vim.keymap.set('n', '<leader>f', ':FzfLua files<CR>', { desc = 'Go to next tab' })
+
+
 
