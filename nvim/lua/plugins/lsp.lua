@@ -13,7 +13,7 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup({
             -- List language servers you want to install
-            ensure_installed = { "lua_ls", "ts_ls", "jsonls", "pyright", "astro" },
+            ensure_installed = { "lua_ls", "ts_ls", "jsonls", "pyright", "astro", "emmet_ls", "tailwindcss" },
         })
 
         local lspconfig = require('lspconfig')

@@ -17,7 +17,6 @@ tree.setup({
 vim.opt.termguicolors = true
 require("bufferline").setup()
 require("lualine").setup()
-vim.cmd("NvimTreeOpen")
 vim.cmd("TransparentEnable")
 vim.opt.splitright = true
 vim.g.mapleader = " "

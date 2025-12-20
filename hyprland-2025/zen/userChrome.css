@@ -7,19 +7,21 @@
   --arrowpanel-background: hsl(225 30% 12% / 1) !important;
   --zen-colors-border: hsl(225 11% 50% / 0.7) !important;
   --toolbox-bgcolor-inactive: transparent !important;
+  clip-path: inset(0 round 0px);
 }
 
 #appMenu-popup, #contentAreaContextMenu, #tabContextMenu, #downloadsPanel, panel {
     --panel-border-radius: 12px !important;
 }
 
-#urlbar-background {
+.urlbar-background {
   border: 1px solid hsl(225 11% 50% / 0.7) !important;
-  background: hsl(225 30% 10% / 0.5) !important;
+  background: hsl(225 30% 10% / 0.1) !important;
 }
 
-#urlbar[open] #urlbar-background {
-    background: hsl(225 30% 10% / 1) !important;
+#urlbar[open] .urlbar-background {
+    background: hsl(225 30% 10%) !important;
+  backdrop-filter: blur(24px) !important;
 }
 
 menuitem {
@@ -51,4 +53,11 @@ menuitem {
 
 #sidebar, #sidebar-header {
   background: transparent !important;;
+}
+
+panelmultiview[mainViewId="unified-extensions-view"] {
+    border: 1px solid hsl(225 11% 50% / 0.7) !important;
+    background: hsl(225 30% 10% / 0.1) !important;
+  overflow:none;
+  border-radius: 12px;
 }
