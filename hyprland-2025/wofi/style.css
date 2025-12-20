@@ -1,0 +1,54 @@
+
+#window {
+    background-color: rgba(0, 3, 10, 0.7);
+    border: 1px solid rgba(113, 120, 142, 0.7);
+    padding: 8px;
+    font-family: "FantasqueSansM Nerd Font Mono";
+}
+
+#outer-box {
+    border: none;
+}
+
+#inner-box {
+    padding: 8px;
+    border: none;
+}
+
+#scroll {
+    border: none;
+}
+
+#input {
+    background-color: transparent;
+    padding: 16px 20px;
+    border: none;
+    font-size: 20px;
+    border-bottom: 1px solid rgba(113, 120, 142, 0.7);
+}
+
+.entry {
+    padding: 0px 4px;
+    border: 1px solid transparent;
+}
+
+#entry {
+    border: 1px solid transparent;
+}
+
+#entry:selected {
+    background-color: rgba(137, 180, 250, 0.2);
+    border: 1px solid rgba(137, 180, 250, 0.2);
+    border-radius: 0;
+}
+
+#text {
+    background-color: transparent;
+    padding-left: 8px;
+}
+
+#img {
+    background-color: transparent;
+    padding: 0px;
+}
+

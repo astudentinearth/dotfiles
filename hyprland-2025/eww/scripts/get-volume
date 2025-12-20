@@ -1,0 +1,11 @@
+#!/bin/bash
+# Get volume and mute status from wpctl
+# Output format: 50% or MUTED
+output=$(wpctl get-volume @DEFAULT_AUDIO_SINK@)
+
+if echo "$output" | grep -q "MUTED"; then
+    echo "MUTED"
+else
+    # Extract the decimal, multiply by 100, and remove trailing zeros
+    echo "$output" | awk '{print int($2 * 100)"%"}'
+fi

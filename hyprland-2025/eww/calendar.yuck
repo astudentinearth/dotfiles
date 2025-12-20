@@ -6,6 +6,7 @@
                         :height "80px"
                         :anchor "top right")
     :stacking "fg"
+    :namespace "bar"
     (calendar_widget))
 
 (defwidget calendar_widget []
