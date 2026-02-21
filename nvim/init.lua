@@ -37,3 +37,8 @@ vim.keymap.set('n', "<leader><Tab>", ":BufferLineCycleNext<CR>", { desc = "Next 
 vim.keymap.set('n', "<leader><S-Tab>", ":BufferLineCyclePrev<CR>", { desc = "Prev tab" })
 vim.keymap.set('n', "<leader>.", ":FzfLua lsp_code_actions<CR>", { desc = "View code actions" })
 vim.keymap.set('n', '<leader>c', ':CopilotChatToggle<CR>');
+vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>');
+vim.keymap.set('n', ':q', ':bdelete<CR>', { silent = true })
+
+
+
