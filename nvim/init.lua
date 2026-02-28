@@ -38,7 +38,24 @@ vim.keymap.set('n', "<leader><S-Tab>", ":BufferLineCyclePrev<CR>", { desc = "Pre
 vim.keymap.set('n', "<leader>.", ":FzfLua lsp_code_actions<CR>", { desc = "View code actions" })
 vim.keymap.set('n', '<leader>c', ':CopilotChatToggle<CR>');
 vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>');
-vim.keymap.set('n', ':q', ':bdelete<CR>', { silent = true })
+vim.keymap.set('n', '<leader>w', ':bdelete<CR>');
+vim.keymap.set('n', '<leader>s', ':Copilot suggest');
 
 
+vim.api.nvim_create_user_command("OrganizeImports", function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  -- Grab the ts_ls client attached to the current buffer
+  local clients = vim.lsp.get_clients({ bufnr = bufnr, name = "ts_ls" })
+  
+  if #clients == 0 then
+    vim.notify("ts_ls isn't attached to this buffer tbh", vim.log.levels.WARN)
+    return
+  end
 
+  -- Fire the command using the modern exec_cmd API
+  clients[1]:exec_cmd({
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(bufnr) },
+    title = "Organize Imports"
+  }, { bufnr = bufnr })
+end, { desc = "Organize TypeScript imports with ts_ls" })
