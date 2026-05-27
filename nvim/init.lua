@@ -33,13 +33,19 @@ vim.keymap.set('n', '<leader><S-f>', function()
 end, { desc = "Format file" })
 
 vim.keymap.set('n', "<leader>p", ":FzfLua<CR>", { desc = "Fzflua palette" })
-vim.keymap.set('n', "<leader><Tab>", ":BufferLineCycleNext<CR>", { desc = "Next tab" })
-vim.keymap.set('n', "<leader><S-Tab>", ":BufferLineCyclePrev<CR>", { desc = "Prev tab" })
-vim.keymap.set('n', "<leader>.", ":FzfLua lsp_code_actions<CR>", { desc = "View code actions" })
+vim.keymap.set('n', "gt", ":bnext<CR>", { desc = "Next tab" })
+vim.keymap.set('n', "gT", ":bprev<CR>", { desc = "Prev tab" })
+vim.keymap.set('n', "g.", ":FzfLua lsp_code_actions<CR>", { desc = "View code actions" })
+vim.keymap.set("n", "grr", "<cmd>FzfLua lsp_references<cr>", { silent = true })
+vim.keymap.set("n", "gri", "<cmd>FzfLua lsp_implementations<cr>", { silent = true })
+vim.keymap.set("n", "grt", "<cmd>FzfLua lsp_typedefs<cr>", { silent = true })
+vim.keymap.set("n", "grd", function() vim.diagnostic.open_float() end );
 vim.keymap.set('n', '<leader>c', ':CopilotChatToggle<CR>');
 vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>');
 vim.keymap.set('n', '<leader>w', ':bdelete<CR>');
 vim.keymap.set('n', '<leader>s', ':Copilot suggest');
+
+vim.lsp.enable("biome");
 
 
 vim.api.nvim_create_user_command("OrganizeImports", function()
