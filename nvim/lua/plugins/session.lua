@@ -7,6 +7,7 @@ return {
   ---@type AutoSession.Config
   opts = {
     suppressed_dirs = { "~/", "~/src", "~/Downloads", "/" },
+    bypass_save_filetypes = { 'NvimTree', 'alpha', 'dashboard'},
     -- log_level = 'debug',
   },
 }

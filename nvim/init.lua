@@ -11,11 +11,33 @@ local tree = require("nvim-tree")
 tree.setup({
     view = {
         width = 20
+    },
+    sync_root_with_cwd = false,
+    update_focused_file = {
+        enable = false,
+        update_root = false
+    },
+    actions = {
+        change_dir = {
+            enable = false,
+            global = false
+        }
     }
 })
 
 vim.opt.termguicolors = true
-require("bufferline").setup()
+require("bufferline").setup({
+    options = {
+        offsets = {
+            {
+                filetype = "NvimTree",
+                text = " Files",
+                text_align = "left",
+                separator = true
+            }
+        }
+    }
+})
 require("lualine").setup()
 vim.cmd("TransparentEnable")
 vim.opt.splitright = true
