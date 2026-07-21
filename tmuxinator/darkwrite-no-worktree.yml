@@ -1,10 +1,9 @@
 
 <% 
-  feature_name = @args[0] || "dev"
-  worktree_root = File.expand_path("~/src/darkwrite/#{feature_name}")
+  worktree_root = File.expand_path("~/src/darkwrite/")
 %>
 
-name: <%= feature_name %>
+name: darkwrite
 root: <%= worktree_root %>
 
 

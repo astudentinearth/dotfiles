@@ -47,12 +47,31 @@ vim.filetype.add({
         yuck = "lisp",
     },
 })
+local telescope = require("telescope.builtin")
+
+local actions = require("telescope.actions")
+
+require("telescope").setup({
+  defaults = {
+    mappings = {
+      i = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+      },
+      n = {
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+      },
+    },
+  },
+})
 
 require("fzf-lua").register_ui_select()
-vim.keymap.set('n', '<leader>f', ':FzfLua files<CR>', { desc = 'Go to next tab' })
+vim.keymap.set('n', '<leader>f', telescope.find_files, { desc = 'Go to next tab' })
 vim.keymap.set('n', '<leader><S-f>', function()
     vim.lsp.buf.format()
 end, { desc = "Format file" })
+
 
 vim.keymap.set('n', "<leader>p", ":FzfLua<CR>", { desc = "Fzflua palette" })
 vim.keymap.set('n', "gt", ":bnext<CR>", { desc = "Next tab" })
@@ -69,6 +88,13 @@ vim.keymap.set('n', '<leader>s', ':Copilot suggest');
 
 vim.lsp.enable("biome");
 
+vim.keymap.set('i', '<C-j>', function()
+  return vim.fn.pumvisible() == 1 and '<C-n>' or '<C-j>'
+end, { expr = true, noremap = true })
+
+vim.keymap.set('i', '<C-k>', function()
+  return vim.fn.pumvisible() == 1 and '<C-p>' or '<C-k>'
+end, { expr = true, noremap = true })
 
 vim.api.nvim_create_user_command("OrganizeImports", function()
   local bufnr = vim.api.nvim_get_current_buf()
