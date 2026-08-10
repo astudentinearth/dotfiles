@@ -13,12 +13,15 @@ return {
         require("mason").setup()
         require("mason-lspconfig").setup({
             -- List language servers you want to install
-            ensure_installed = { "lua_ls", "ts_ls", "jsonls", "pyright", "astro", "tailwindcss" },
+            ensure_installed = { "lua_ls", "tsgo", "jsonls", "pyright", "astro", "tailwindcss" },
         })
 
         local lspconfig = require('lspconfig')
         local cmp = require('cmp')
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+
+
         cmp.setup({
             sources = {
                 { name = 'nvim_lsp' },
@@ -50,7 +53,7 @@ return {
                         end
                     end
                     return require('lspkind').cmp_format({ mode = "symbol", maxwidth = 50, ellipsis_char = "...", with_text = false })(
-                    entry, vim_item)
+                        entry, vim_item)
                 end
             },
         })

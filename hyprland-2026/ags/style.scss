@@ -1,0 +1,70 @@
+// https://gitlab.gnome.org/GNOME/gtk/-/blob/gtk-3-24/gtk/theme/Adwaita/_colors-public.scss
+$fg-color: #{"@theme_fg_color"};
+$bg-color: #{"@theme_bg_color"};
+$base: #{"@theme_base_color"};
+
+window.Bar {
+  background: transparent;
+  color: $fg-color;
+  font-weight: bold;
+
+  > centerbox {
+    background: #16161DAA;
+    border-radius: 12px;
+    margin: 4px 8px 0px 8px;
+    border: 1px solid #363646;
+  }
+
+  button {
+    border-radius: 8px;
+    margin: 2px;
+  }
+}
+
+.clock-btn > button {
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+  border: none;
+}
+
+.clock-btn {
+  background: transparent;
+  background-image: none;
+  box-shadow: none;
+  border: none;
+}
+
+.calendar-popover > contents {
+  border-radius: 20px;
+  background: #1F1F2888;
+}
+
+.calendar-popover {
+  margin-top: 4px;
+}
+
+.calendar-popover calendar {
+  background: transparent;
+  opacity: 0.75;
+}
+
+.calendar-popover calendar:hover {
+  opacity: 1;
+}
+
+.calendar-popover calendar > header {
+  background: transparent;
+}
+
+.calendar-popover calendar > grid {
+  background: transparent;
+}
+
+.workspaces {
+  background: $base;
+}
+
+.workspaces label {
+  margin: 4px 2px;
+}

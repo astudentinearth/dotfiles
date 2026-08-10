@@ -1,4 +1,5 @@
 return {
 --    { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
-    "xiyaowong/transparent.nvim"
+    "xiyaowong/transparent.nvim",
+    "rebelot/kanagawa.nvim"
 }
