@@ -70,7 +70,7 @@ require("telescope").setup({
 require("fzf-lua").register_ui_select()
 vim.keymap.set('n', '<leader>f', telescope.find_files, { desc = 'Go to next tab' })
 vim.keymap.set('n', '<leader><S-f>', function()
-    vim.lsp.buf.format()
+    require("config.biome").format()
 end, { desc = "Format file" })
 
 
@@ -86,14 +86,7 @@ vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>');
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>')
 
 vim.lsp.enable("biome");
-
-vim.api.nvim_create_user_command("OrganizeImports", function()
-    vim.lsp.buf.code_action({
-        context = { only = { "source.organizeImports" } },
-        apply = true,
-        async = false,
-    })
-end, { desc = "Organize imports (Biome)" })
+require("config.biome")
 
 
 vim.keymap.set('i', '<C-j>', function()

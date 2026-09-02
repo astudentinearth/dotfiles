@@ -16,7 +16,6 @@ return {
           --  ensure_installed = { "lua_ls", "tsgo", "jsonls", "pyright", "astro", "tailwindcss" },
         --})
 
-        local lspconfig = require('lspconfig')
         local cmp = require('cmp')
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
