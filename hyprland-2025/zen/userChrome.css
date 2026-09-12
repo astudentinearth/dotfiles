@@ -5,7 +5,7 @@
 :root {
   --panel-border-radius: 16px !important;
   --arrowpanel-background: hsl(225 30% 12% / 1) !important;
-  --zen-colors-border: hsl(225 11% 50% / 0.7) !important;
+  /*--zen-colors-border: hsl(225 11% 50% / 0.7) !important;*/
   --toolbox-bgcolor-inactive: transparent !important;
   clip-path: inset(0 round 0px);
 }
@@ -33,7 +33,7 @@ menuitem {
   border-radius: 16px !important;
 }
 
-.browserSidebarContainer {
+/*.browserSidebarContainer {
   border: 1px solid hsl(231 11% 47% / 0.5) !important;
   border-radius: 8px !important;
 }
@@ -60,4 +60,4 @@ panelmultiview[mainViewId="unified-extensions-view"] {
     background: hsl(225 30% 10% / 0.1) !important;
   overflow:none;
   border-radius: 12px;
-}
+}*/

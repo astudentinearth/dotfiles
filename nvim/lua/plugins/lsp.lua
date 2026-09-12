@@ -10,11 +10,11 @@ return {
         'onsails/lspkind.nvim'
     },
     config = function()
-        require("mason").setup()
-        require("mason-lspconfig").setup({
+        --require("mason").setup()
+        --require("mason-lspconfig").setup({
             -- List language servers you want to install
-            ensure_installed = { "lua_ls", "tsgo", "jsonls", "pyright", "astro", "tailwindcss" },
-        })
+          --  ensure_installed = { "lua_ls", "tsgo", "jsonls", "pyright", "astro", "tailwindcss" },
+        --})
 
         local lspconfig = require('lspconfig')
         local cmp = require('cmp')
