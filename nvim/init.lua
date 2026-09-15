@@ -85,7 +85,6 @@ vim.keymap.set("n", "grd", function() vim.diagnostic.open_float() end);
 vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>');
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>')
 
-vim.lsp.enable("biome");
 require("config.biome")
 
 

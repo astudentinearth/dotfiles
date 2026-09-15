@@ -1,8 +1,6 @@
 return {
     'neovim/nvim-lspconfig',
     dependencies = {
-        'williamboman/mason.nvim',
-        'williamboman/mason-lspconfig.nvim',
         'hrsh7th/nvim-cmp',
         'hrsh7th/cmp-nvim-lsp',
         'L3MON4D3/LuaSnip',
@@ -10,16 +8,21 @@ return {
         'onsails/lspkind.nvim'
     },
     config = function()
-        --require("mason").setup()
-        --require("mason-lspconfig").setup({
-            -- List language servers you want to install
-          --  ensure_installed = { "lua_ls", "tsgo", "jsonls", "pyright", "astro", "tailwindcss" },
-        --})
-
         local cmp = require('cmp')
         local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-
+        vim.lsp.config('*', { capabilities = capabilities })
+        -- Keep this list in sync with the language servers in home/nvim.nix.
+        -- Nix installs the binaries; Neovim must still enable their configs.
+        vim.lsp.enable({
+            'lua_ls',
+            'ts_ls',
+            'astro',
+            'tailwindcss',
+            'nil_ls',
+            'biome',
+            'clangd',
+        })
 
         cmp.setup({
             sources = {
