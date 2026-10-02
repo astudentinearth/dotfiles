@@ -4,6 +4,24 @@ vim.opt.ignorecase = true
 vim.opt.shiftwidth = 4
 vim.opt.number = true
 vim.opt.expandtab = true
+vim.opt.autoread = true
+
+-- Pick up external file changes while preserving buffers with unsaved edits.
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
+    group = vim.api.nvim_create_augroup('AutoReload', { clear = true }),
+    callback = function()
+        if vim.fn.getcmdwintype() ~= '' or vim.fn.mode() == 'c' then
+            return
+        end
+        for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+            if vim.api.nvim_buf_is_loaded(buf)
+                and vim.bo[buf].buftype == ''
+                and not vim.bo[buf].modified then
+                vim.cmd('checktime ' .. buf)
+            end
+        end
+    end,
+})
 
 require("config.lazy")
 
