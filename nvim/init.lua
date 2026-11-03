@@ -3,6 +3,7 @@ vim.opt.tabstop = 4
 vim.opt.ignorecase = true
 vim.opt.shiftwidth = 4
 vim.opt.number = true
+vim.opt.scrolloff = 3
 vim.opt.expandtab = true
 vim.opt.autoread = true
 
