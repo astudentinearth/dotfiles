@@ -3,6 +3,7 @@ vim.opt.tabstop = 4
 vim.opt.ignorecase = true
 vim.opt.shiftwidth = 4
 vim.opt.number = true
+vim.opt.cursorline = true
 vim.opt.scrolloff = 3
 vim.opt.expandtab = true
 vim.opt.autoread = true
@@ -26,6 +27,7 @@ vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHo
 
 require("config.lazy")
 
+--[[ NvimTree configuration (kept for switching back).
 local tree = require("nvim-tree")
 tree.setup({
     view = {
@@ -44,26 +46,17 @@ tree.setup({
     }
 })
 
+]]
+
 vim.opt.termguicolors = true
--- require("bufferline").setup({
---     options = {
---         offsets = {
---             {
---                 filetype = "NvimTree",
---                 text = " Files",
---                 text_align = "left",
---                 separator = true
---             }
---         }
---     }
--- })
 require("lualine").setup()
-vim.cmd("TransparentEnable")
+--vim.cmd("TransparentEnable")
 vim.opt.splitright = true
 vim.g.mapleader = " "
 vim.filetype.add({
     extension = {
         yuck = "lisp",
+        mdx = "markdown"
     },
 })
 local telescope = require("telescope.builtin")
@@ -94,14 +87,13 @@ end, { desc = "Format file" })
 
 
 vim.keymap.set('n', "<leader>p", ":FzfLua<CR>", { desc = "Fzflua palette" })
--- vim.keymap.set('n', "gt", ":bnext<CR>", { desc = "Next tab" })
--- vim.keymap.set('n', "gT", ":bprev<CR>", { desc = "Prev tab" })
 vim.keymap.set('n', "g.", ":FzfLua lsp_code_actions<CR>", { desc = "View code actions" })
 vim.keymap.set("n", "grr", "<cmd>FzfLua lsp_references<cr>", { silent = true })
 vim.keymap.set("n", "gri", "<cmd>FzfLua lsp_implementations<cr>", { silent = true })
 vim.keymap.set("n", "grt", "<cmd>FzfLua lsp_typedefs<cr>", { silent = true })
 vim.keymap.set("n", "grd", function() vim.diagnostic.open_float() end);
-vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>');
+-- vim.keymap.set('n', '<leader>b', ':NvimTreeToggle<CR>');
+vim.keymap.set('n', '<leader>b', '<Cmd>Neotree toggle<CR>', { desc = 'Toggle file explorer' })
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>')
 
 require("config.biome")
@@ -116,20 +108,3 @@ vim.keymap.set('i', '<C-k>', function()
 end, { expr = true, noremap = true })
 
 
--- vim.api.nvim_create_user_command("OrganizeImports", function()
---   local bufnr = vim.api.nvim_get_current_buf()
---   -- Grab the ts_ls client attached to the current buffer
---   local clients = vim.lsp.get_clients({ bufnr = bufnr, name = "ts_ls" })
---
---   if #clients == 0 then
---     vim.notify("ts_ls isn't attached to this buffer tbh", vim.log.levels.WARN)
---     return
---   end
---
---   -- Fire the command using the modern exec_cmd API
---   clients[1]:exec_cmd({
---     command = "_typescript.organizeImports",
---     arguments = { vim.api.nvim_buf_get_name(bufnr) },
---     title = "Organize Imports"
---   }, { bufnr = bufnr })
--- end, { desc = "Organize TypeScript imports with ts_ls" })

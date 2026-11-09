@@ -17,7 +17,7 @@ return {
             -- bundles `c` but not `cpp`/`typescript`, so leaving this on would
             -- light up scope in C files only and stay dark everywhere else.
             scope = { enabled = false },
-            exclude = { filetypes = { "NvimTree", "oil" } },
+            exclude = { filetypes = { "NvimTree", "neo-tree", "oil" } },
         },
     },
 }
