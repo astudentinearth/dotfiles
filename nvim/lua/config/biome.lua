@@ -42,14 +42,30 @@ end
 --- Format, preferring Biome so a second client cannot re-format over its
 --- output. Without this, tsgo re-formats TS/TSX using tabstop/shiftwidth
 --- instead of biome.json and inflates the diff until lint-staged reverts it.
-function M.format()
-    local bufnr = vim.api.nvim_get_current_buf()
-    local opts = { bufnr = bufnr, async = false }
+function M.format(bufnr)
+    bufnr = bufnr or vim.api.nvim_get_current_buf()
+    local opts = { bufnr = bufnr, async = false, timeout_ms = 3000 }
     if biome_client(bufnr) then
         opts.name = "biome"
     end
     vim.lsp.buf.format(opts)
 end
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = vim.api.nvim_create_augroup("FormatOnSave", { clear = true }),
+    callback = function(event)
+        if vim.bo[event.buf].buftype ~= "" or not vim.bo[event.buf].modifiable then
+            return
+        end
+        local clients = vim.lsp.get_clients({
+            bufnr = event.buf,
+            method = "textDocument/formatting",
+        })
+        if #clients > 0 then
+            M.format(event.buf)
+        end
+    end,
+})
 
 vim.api.nvim_create_user_command("OrganizeImports", function()
     biome_source_action("source.organizeImports.biome")

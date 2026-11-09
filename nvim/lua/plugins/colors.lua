@@ -1,5 +1,8 @@
 return {
---    { "catppuccin/nvim", name = "catppuccin", priority = 1000 }
-    -- "xiyaowong/transparent.nvim",
-    "rebelot/kanagawa.nvim"
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = { style = "night" },
+    },
 }

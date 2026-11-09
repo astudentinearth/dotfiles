@@ -59,10 +59,18 @@ vim.filetype.add({
         mdx = "markdown"
     },
 })
-local telescope = require("telescope.builtin")
+-- Markdown and MDX (mapped to markdown above) use English spellchecking.
+vim.api.nvim_create_autocmd('FileType', {
+    group = vim.api.nvim_create_augroup('MarkdownSpellcheck', { clear = true }),
+    pattern = { 'markdown', 'mdx' },
+    callback = function()
+        vim.opt_local.spell = true
+        vim.opt_local.spelllang = 'en'
+    end,
+})
 
 local actions = require("telescope.actions")
-vim.cmd("colorscheme kanagawa-wave")
+vim.cmd("colorscheme tokyonight-night")
 
 require("telescope").setup({
     defaults = {
@@ -79,14 +87,22 @@ require("telescope").setup({
     },
 })
 
-require("fzf-lua").register_ui_select()
-vim.keymap.set('n', '<leader>f', telescope.find_files, { desc = 'Go to next tab' })
+local fzf = require("fzf-lua")
+require('telescope').load_extension('ui-select')
+vim.keymap.set('n', '<leader>f', require('telescope.builtin').find_files, { desc = 'Find files' })
+vim.keymap.set('n', '<leader>t', fzf.lsp_workspace_symbols, { desc = 'Search workspace symbols' })
+vim.keymap.set('n', '<leader>/', fzf.live_grep, { desc = 'Search project text' })
+vim.keymap.set('n', '<leader>?', function()
+    fzf.live_grep({ resume = true })
+end, { desc = 'Resume project text search' })
 vim.keymap.set('n', '<leader><S-f>', function()
     require("config.biome").format()
 end, { desc = "Format file" })
 
 
-vim.keymap.set('n', "<leader>p", ":FzfLua<CR>", { desc = "Fzflua palette" })
+vim.keymap.set('n', '<leader>p', '<Cmd>Legendary<CR>', { desc = 'Command palette' })
+-- Kitty sends F6 for Command-P, including when running through tmux.
+vim.keymap.set({ 'n', 'i', 'v' }, '<F6>', '<Cmd>Legendary<CR>', { desc = 'Command palette' })
 vim.keymap.set('n', "g.", ":FzfLua lsp_code_actions<CR>", { desc = "View code actions" })
 vim.keymap.set("n", "grr", "<cmd>FzfLua lsp_references<cr>", { silent = true })
 vim.keymap.set("n", "gri", "<cmd>FzfLua lsp_implementations<cr>", { silent = true })
