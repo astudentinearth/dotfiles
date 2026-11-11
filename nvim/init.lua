@@ -102,6 +102,7 @@ end, { desc = "Format file" })
 
 vim.keymap.set('n', '<leader>p', '<Cmd>Legendary<CR>', { desc = 'Command palette' })
 -- Kitty sends F6 for Command-P, including when running through tmux.
+vim.keymap.set({ 'n', 'i', 'v' }, '<F1>', '<Cmd>FzfLua diagnostics_document<CR>', { desc = 'Document diagnostics', silent = true })
 vim.keymap.set({ 'n', 'i', 'v' }, '<F6>', '<Cmd>Legendary<CR>', { desc = 'Command palette' })
 vim.keymap.set('n', "g.", ":FzfLua lsp_code_actions<CR>", { desc = "View code actions" })
 vim.keymap.set("n", "grr", "<cmd>FzfLua lsp_references<cr>", { silent = true })
