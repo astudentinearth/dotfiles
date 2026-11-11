@@ -5,7 +5,7 @@ return {
     opts = {
         extensions = { lazy_nvim = true },
         sort = { frecency = false },
-        funcs = {
+        funcs = vim.list_extend({
             {
                 function()
                     local names, seen = {}, {}
@@ -34,6 +34,6 @@ return {
             { function() require('config.biome').format() end, description = 'Format file' },
             { function() vim.lsp.buf.code_action() end, description = 'Code actions' },
             { function() require('telescope.builtin').colorscheme() end, description = 'Choose installed colorscheme' },
-        },
+        }, require('config.cpp.legendary')),
     },
 }

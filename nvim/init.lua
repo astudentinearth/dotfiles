@@ -114,6 +114,7 @@ vim.keymap.set('n', '<leader>b', '<Cmd>Neotree toggle<CR>', { desc = 'Toggle fil
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>')
 
 require("config.biome")
+require('config.cpp').setup()
 
 
 vim.keymap.set('i', '<C-j>', function()
