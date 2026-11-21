@@ -74,6 +74,8 @@ vim.cmd("colorscheme tokyonight-night")
 
 require("telescope").setup({
     defaults = {
+        -- Ignore root-level and nested vendor directories.
+        file_ignore_patterns = { '^vendor/', '/vendor/' },
         mappings = {
             i = {
                 ["<C-j>"] = actions.move_selection_next,
